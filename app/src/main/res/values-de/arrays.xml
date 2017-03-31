@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list">
+        <item>Schreibmaschinen Tastaturbelegung: qwert</item>
+        <item>Alphabetische Tastaturbelegung: abcde</item>
+    </string-array>
+
+    <string-array name="values">
+        <item>qwert</item>
+        <item>abcde</item>
+    </string-array>s
+</resources>

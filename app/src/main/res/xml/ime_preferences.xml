@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/select_layout">
+        <ListPreference
+            android:title="@string/layouts"
+            android:key="layouts"
+            android:summary="Click to select the keyboard layout"
+            android:entries="@array/list"
+            android:entryValues="@array/values"
+            android:defaultValue="qwert"/>
+    </PreferenceCategory>
+</PreferenceScreen>

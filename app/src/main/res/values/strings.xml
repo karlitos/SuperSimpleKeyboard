@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Super Simple Keyboard</string>
+    <string name="key_space">Space</string>
+    <string name="key_delete">Delete</string>
+    <string name="key_shift">Shift</string>
+    <string name="key_chars">Chars</string>
+    <string name="key_text">Letters</string>
+    <string name="key_enter">Done</string>
+    <string name="localType">en_UK</string>
+    <string name="keyboardLabel">Senior Keyboard</string>
+    <string name="alphabetLayoutLabel">Alphabet layout ABCDE</string>
+    <string name="typewriterLayoutLabel">Typewriter layout QWERT</string>
+    <string name="settings_name">Keyboard settings</string>
+    <string name="layout_selection_title">Keyboard layout selection</string>
+    <!-- "selec_layout" Label for laoyut-selection sub-menu -->
+    <string name="select_layout">Select keyboard layout</string>
+    <string name="layouts">Keyboard layouts</string>
+</resources>
