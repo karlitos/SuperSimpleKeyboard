@@ -20,4 +20,5 @@ This project is heavily based on previous work of __Andreas Madner__ and his pro
 + Rework of all supported laoyuts
 + Fixing key-labels sometimes sticking out of the keys
 + Code-cleanup
+
 [1]: https://github.com/AndreasMadner/SMSsenior_Keyboard
