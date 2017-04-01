@@ -2,17 +2,22 @@ package net.karlitos.supersimplekeyboard;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.os.Build;
+import android.os.IBinder;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.InputMethodInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
+
+import java.util.List;
 
 /**
  * Created by Karel Macha 2015-2016
@@ -32,14 +37,15 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
     private Keyboard charKeyboard;
     private boolean isCaps = true; //Start the keyboard in Caps-layout
     private boolean isCharKeyboard = false; //Start the keyboard with letter-layout
-    SharedPreferences prefs;
+    InputMethodManager imm;
 
     @SuppressLint("InflateParams")
     @Override
     public View onCreateInputView()
     {
+        imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         // SharedPreferences prefs = getSharedPreferences("ime_preferences", MODE_PRIVATE);
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         // register preference change listener
         prefs.registerOnSharedPreferenceChangeListener(this);
 
@@ -71,7 +77,6 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
         switch (primaryKeyCode)
         {
             case Keyboard.KEYCODE_DONE: //Enter key pressed
-                Log.d("Enter", "Enter");
                 inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
                 break;
 
@@ -110,8 +115,18 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
                         keyboardView.setKeyboard(defaultKeyboard);
                     }
                 }
-                else
-                {
+                else if (primaryKeyCode == -99998) {
+                    // Start voice input
+                    // check if the  Google voice input exist first
+                    String voiceExists = voiceExists(imm);
+                    if (voiceExists != null) {
+                        final IBinder token = getWindow().getWindow().getAttributes().token;
+                        imm.setInputMethod(token,voiceExists);
+    }
+                } else if (primaryKeyCode == -99997) {
+                    // close the soft keyboard
+                    requestHideSelf(0);
+                } else {
                     if (Character.isLetter(keyCode) && isCaps) //check if the keyCode is a valid letter and check if the keyboard is in Caps-layout
                     {
                         keyCode = Character.toUpperCase(keyCode); // set keyValue to UpperCase
@@ -127,6 +142,25 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
                 }
 
         }
+    }
+
+    // method checking if the Google voice input is installed and returning its Id
+    private String voiceExists(InputMethodManager imeManager) {
+        List<InputMethodInfo> list = imeManager.getInputMethodList();
+        for (InputMethodInfo el : list) {
+            // return the id of the Google voice input input method
+            // in this case "com.google.android.googlequicksearchbox"
+            String id = el.getId();
+            if (id.contains("com.google.android.voicesearch")) {
+                return id;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean onEvaluateFullscreenMode() {
+        return false;
     }
 
     @Override

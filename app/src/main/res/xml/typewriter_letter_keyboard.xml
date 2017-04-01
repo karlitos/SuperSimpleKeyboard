@@ -10,10 +10,10 @@
         <Key
             android:codes="97"
             android:keyEdgeFlags="left"
-            android:keyLabel="b"/>
+            android:keyLabel="a"/>
         <Key
             android:codes="98"
-            android:keyLabel="a"/>
+            android:keyLabel="b"/>
         <Key
             android:codes="99"
             android:keyLabel="c"/>
@@ -24,7 +24,6 @@
             android:codes="101"
             android:keyEdgeFlags="right"
             android:keyLabel="e"/>
-
     </Row>
 
     <Row>

@@ -12,6 +12,7 @@
     <string name="typewriterLayoutLabel">Typewriter layout QWERT</string>
     <string name="settings_name">Keyboard settings</string>
     <string name="layout_selection_title">Keyboard layout selection</string>
+    <string name="layout_selection_summary">Tap to select the keyboard layout</string>
     <!-- "selec_layout" Label for laoyut-selection sub-menu -->
     <string name="select_layout">Select keyboard layout</string>
     <string name="layouts">Keyboard layouts</string>

@@ -11,7 +11,8 @@
     <string name="alphabetLayoutLabel">Alphabet Tastenbelegung ABCDE</string>
     <string name="typewriterLayoutLabel">Typewriter Tastenbelegung QWERT</string>
     <string name="settings_name">Tastatur-Einstellungen</string>
-    <string name="layout_selection_title">Keyboard layout selection</string>
-    <string name="select_layout">Select keyboard laoyut</string>
+    <string name="layout_selection_title">Tastaturbelegung Auswahl</string>
+    <string name="layout_selection_summary">Auswählen um die Tastaturbelegung zu ändern</string>
+    <string name="select_layout">Tastaturbelegung</string>
     <string name="layouts">Tastaturbelegung</string>
 </resources>
