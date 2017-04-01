@@ -2,6 +2,10 @@
 Custom keyboard for Android designed with the focus on elderly and people who have disabilities. Supports layout switching, _Google voice input_.
 This is still WIP in very early state. Works best on tablets in landscape-mode.
 
+![Screenshot1](Screenshot1.png)
+
+![Screenshot2](Screenshot2.png)
+
 This project is heavily based on previous work of __Andreas Madner__ and his project [__SMSsenior_Keyboard__][1]
 ## Implemented
 + Two basic layouts:
