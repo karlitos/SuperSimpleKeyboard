@@ -65,7 +65,7 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
         keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
         keyboardView.setKeyboard(defaultKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
-        keyboardView.setPreviewEnabled(false); //Disable the preview when key is long pressed
+        keyboardView.setPreviewEnabled(false); // Disable the preview when key is long pressed
 
         defaultKeyboard.setShifted(true); // Start the keyboard in Caps-layout
         keyboardView.invalidateAllKeys(); // Requests a redraw of the entire keyboard
@@ -75,7 +75,7 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
     @Override
     public void onKey(int primaryKeyCode, int[] ints)
     {
-        // skip handling the key events when the key
+        // skip handling of the key events when the key event handling disabled
         if (!this.keyEventHandlingActive) { return; }
         // set keyEventActive to false at the beginning
         this.keyEventHandlingActive = false;
@@ -109,14 +109,14 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
             default:
                 char keyCode = (char) primaryKeyCode;
 
-                if (primaryKeyCode == -99999) //keyCode for switching between letter keyboard layout and character-layout
+                if (primaryKeyCode == -99999) // keyCode for switching between letter keyboard layout and character-layout
                 {
-                    if (!isCharKeyboard) //if keyboard is in letter-layout then switch it to character-layout
+                    if (!isCharKeyboard) // if keyboard is in letter-layout then switch it to character-layout
                     {
                         isCharKeyboard = true;
                         keyboardView.setKeyboard(charKeyboard);
                     }
-                    else //if keyboard is already in character-layout then switch back to letter-layout
+                    else // if keyboard is already in character-layout then switch back to letter-layout
                     {
                         isCharKeyboard = false;
                         keyboardView.setKeyboard(defaultKeyboard);
@@ -134,13 +134,13 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
                     // close the soft keyboard
                     requestHideSelf(0);
                 } else {
-                    if (Character.isLetter(keyCode) && isCaps) //check if the keyCode is a valid letter and check if the keyboard is in Caps-layout
+                    if (Character.isLetter(keyCode) && isCaps) // check if the keyCode is a valid letter and check if the keyboard is in Caps-layout
                     {
                         keyCode = Character.toUpperCase(keyCode); // set keyValue to UpperCase
                     }
-                    inputConnection.commitText(String.valueOf(keyCode), 1); //Commit value from keyCode to the text box and set the cursor 1 position to the right
+                    inputConnection.commitText(String.valueOf(keyCode), 1); // Commit value from keyCode to the text box and set the cursor 1 position to the right
 
-                    if (isCaps) //switch back the keyboard to the lowercase letter-layout
+                    if (isCaps) // switch back the keyboard to the lowercase letter-layout
                     {
                         defaultKeyboard.setShifted(false);
                         keyboardView.invalidateAllKeys();
@@ -197,10 +197,10 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
         }
         keyboardView.setKeyboard(defaultKeyboard);
         setInputView(this.onCreateInputView());
+        } else if (key.equals("maxKeyEventRate")){
+
         }
     }
-
-
 
     //region  Not implemented abstract methods
     @Override

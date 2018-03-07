@@ -15,4 +15,5 @@
     <string name="layout_selection_summary">Auswählen um die Tastaturbelegung zu ändern</string>
     <string name="select_layout">Tastaturbelegung</string>
     <string name="layouts">Tastaturbelegung</string>
+    <string name="mistypeReduction">Verringerung der Tippfehler</string>
 </resources>

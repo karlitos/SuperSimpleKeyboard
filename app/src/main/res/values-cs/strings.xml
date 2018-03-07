@@ -16,4 +16,5 @@
     <string name="layout_selection_summary">Vyberte pro změnu rozvržení kláves klávesnice</string>
     <string name="select_layout">Rozložení kláves</string>
     <string name="layouts">Rozložení kláves</string>
+    <string name="mistypeReduction">Snížení četnosti překlepů</string>
 </resources>
