@@ -38,6 +38,8 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
     private boolean isCaps = true; //Start the keyboard in Caps-layout
     private boolean isCharKeyboard = false; //Start the keyboard with letter-layout
     InputMethodManager imm;
+    private boolean keyEventHandlingActive = true;
+    //private
 
     @SuppressLint("InflateParams")
     @Override
@@ -73,6 +75,11 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
     @Override
     public void onKey(int primaryKeyCode, int[] ints)
     {
+        // skip handling the key events when the key
+        if (!this.keyEventHandlingActive) { return; }
+        // set keyEventActive to false at the beginning
+        this.keyEventHandlingActive = false;
+
         InputConnection inputConnection = getCurrentInputConnection(); //Retrieve the currently active InputConnection that is bound to the input method
         switch (primaryKeyCode)
         {
@@ -142,6 +149,15 @@ public class KeyboardService extends InputMethodService implements KeyboardView.
                 }
 
         }
+        // change keyEventActive delayed
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        // set the keyEventActive to true again
+                        KeyboardService.this.keyEventHandlingActive = true;
+                    }
+                },
+                1000);
     }
 
     // method checking if the Google voice input is installed and returning its Id

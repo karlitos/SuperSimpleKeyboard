@@ -10,4 +10,5 @@
             android:entryValues="@array/values"
             android:defaultValue="qwert"/>
     </PreferenceCategory>
+
 </PreferenceScreen>
