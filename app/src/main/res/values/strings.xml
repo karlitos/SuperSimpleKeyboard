@@ -13,7 +13,12 @@
     <string name="settings_name">Keyboard settings</string>
     <string name="layout_selection_title">Keyboard layout selection</string>
     <string name="layout_selection_summary">Tap to select the keyboard layout</string>
-    <!-- "selec_layout" Label for laoyut-selection sub-menu -->
+    <!-- "select_layout" Label for layout-selection sub-menu -->
     <string name="select_layout">Select keyboard layout</string>
     <string name="layouts">Keyboard layouts</string>
+    <!-- "Reduce typing errors" Label for mistype reduction settings -->
+    <string name="mistypeReduction">Reduce type errors</string>
+    <string name="activateMistypeReduction">Enable type errors reduction</string>
+    <string name="maxKeyEventRate">Keypress repeat rate</string>
+    <string name="maxKeyEventRate_summary">Highest rate (in ms) with which key-presses will be handled.</string>
 </resources>

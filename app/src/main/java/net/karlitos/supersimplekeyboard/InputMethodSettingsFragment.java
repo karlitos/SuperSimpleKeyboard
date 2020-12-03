@@ -3,18 +3,18 @@ package net.karlitos.supersimplekeyboard;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
+import android.support.v7.preference.PreferenceFragmentCompat;
 
 /**
  * This is a helper class for an IME's settings preference fragment. It's recommended for every
  * IME to have its own settings preference fragment which inherits this class.
  */
-public abstract class InputMethodSettingsFragment extends PreferenceFragment
+public abstract class InputMethodSettingsFragment extends PreferenceFragmentCompat
         implements InputMethodSettingsInterface {
     private final InputMethodSettingsImpl mSettings = new InputMethodSettingsImpl();
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        //super.onCreatePreferences(savedInstanceState, rootKey);
         final Context context = getActivity();
         setPreferenceScreen(getPreferenceManager().createPreferenceScreen(context));
         mSettings.init(context, getPreferenceScreen());
